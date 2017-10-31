@@ -5,6 +5,25 @@
 		<title></title>
 	</head>
 	<body>
-		
+		<input type="text" id ="Txtidcode" class ="txtVerification">
+		<samp id="idcode"></samp>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.idcode.js" ></script>
+		<script>
+			$.idcode.setCode();
+			
+			$("#Txtidcode").change(function(){
+				var r = $.idcode.validateCode();
+				
+				if ( r==true) {
+					alert("验证成功")
+				} else{
+					alert("验证失败")
+					
+				}
+				
+				
+			})
+		</script>
 	</body>
 </html>
