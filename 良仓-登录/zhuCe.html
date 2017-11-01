@@ -38,9 +38,11 @@
 			font-size: 20px;
             font-weight: 300;
             color: #F2F2EB;
-            line-height: 50px;
+            /*line-height: 50px;*/
+            /*background-color: aqua;*/
 		}
 		.yangShi{
+			
 			width: 300px;
 			height: 50px;
 			background-color: #CCCCCC;
@@ -48,8 +50,14 @@
 		}
 		#idcode{
 			width: 60px;
-			height: 40px;
-			float: left;
+			height: 30px;
+			border: 1px solid red;
+			/*float: left;*/
+			display: inline-block;
+			position:absolute;
+			line-height: initial;
+			margin-left: 50px;
+			margin-top: 10px;
 		}
 		
 		.tongYi{
@@ -118,27 +126,28 @@
 		<div  class="logo"><img src="img/zxc3.png" /></div>
 	<div class="xinXiKuang">
 		<p class="hangGao"><samp>手机号码</samp>
-			<input class="yangShi" id="Txtidcode" placeholder="请输入手机号" onfocus="this.placeholder=''" 
+			<input class="yangShi" id="number" placeholder="请输入手机号" onfocus="this.placeholder=''" 
              onblur="this.placeholder='请输入手机号'"/>
 		</p>
 		<p class="hangGao"><samp>验证号码</samp> 	
-			<input class="yangShi" id="" placeholder="输入验证码" onfocus="this.placeholder=''" 
+			<input class="yangShi" id="Txtidcode" placeholder="输入验证码" onfocus="this.placeholder=''" 
              onblur="this.placeholder='输入验证码'" required style="width: 170px;"/>
-            <samp id="idcode"></samp>  
+            <span id="idcode"></span>  
 		</p>		
 		<p class="hangGao"><samp>创建密码</samp>
-			<input class="yangShi" id="" placeholder="6－20位字符组成，区分大小写" onfocus="this.placeholder=''" 
-             onblur="this.placeholder='6－20位字符组成，区分大小写'" required/>
+			<input class="yangShi" id="chuangJianMiMa" placeholder="6－20位字符组成，区分大小写" onfocus="this.placeholder=''" 
+             onblur="this.placeholder='6－20位字符组成，区分大小写'" />
 		</p>
 		<p class="hangGao"><samp>密码确认</samp>
-			<input class="yangShi" id="" placeholder="确认密码" onfocus="this.placeholder=''" 
-             onblur="this.placeholder='确认密码'" required/>
+			<input type="password"  class="yangShi" id="queRenMiMa" placeholder="确认密码" onfocus="this.placeholder=''" 
+             onblur="this.placeholder='确认密码'" />
 		</p>
 		<p>
-			<label for="nan"><input type="checkbox" class="tongYi" >同意<a href="">良仓注册条款</a></label>
+			<label for="nan"><input type="checkbox" class="tongYi" checked="checked" >同意
+			<a onclick="location.href='http://www.iliangcang.com/i/our/service'" style="color: blue;cursor: pointer;">良仓注册条款</a></label>
 		</p>
 		<p>
-			<input  class="zhuCe" type="submit" value="立即注册"/>
+			<button class="zhuCe">立即注册</button>
 		</p>
 	</div>
 	<div class="xueBiTu">
@@ -154,19 +163,61 @@
 </div>
 	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
 	<script type="text/javascript" src="js/jquery.idcode.js" ></script>
-	<script>
-		$.idcode.setCode();
-			$("#Txtidcode").change(function(){
-				var r = $.idcode.validateCode();
-				if ( r==true) {
-					alert("验证成功")
-				} else{
-					alert("验证失败")	
-				}	
-			})
-	</script>
+	<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+	
 </body>
 </html>
 
+<script>
+	var reg = /^((13[0-9])|(15[^4])|(18[0,2,3,5-9])|(17[0-8])|(147))\d{8}$/;
+			var str = $("#number").val();
+		//手机用户名输入
+		$("#number").change( function() { 
+			
+			if ( reg.test(str) == true ) {
+				alert("输入成功！")
+			} 
+			else {
+				alert("您输入了错误的手机号码！")
+			}
+       })
+        //验证码输入
+		
+		$.idcode.setCode();
+		$("#Txtidcode").change(function() {
+			var r = $.idcode.validateCode();
+			if (r == true) {
+				alert("验证成功！")
+			} else {
+				alert("验证失败！")
+			}
+		})
+		//密码和确认密码的判断
+		$("#queRenMiMa").change(function(){
+			if(  $("#chuangJianMiMa").val() != $("#queRenMiMa").val()  ){
+				$("#chuangJianMiMa").val("") && $("#queRenMiMa").val("")
+				alert("两次密码输入不一致，请重新输入！")
+			}
+		})
+		//立即注册
+		$("button").click(function(){
+			if($.idcode.validateCode()==true){
+				var url = "http://h6.duchengjiu.top/shop/api_user.php";
+				var data = {
+					status: "register",
+					username: str,
+					password: $("#queRenMiMa").val()
+				}
+				$.post(url, data, function(obj) {
+					alert(obj.message);
+				})
+			}else{
+				$("#Txtidcode").val("")
+				alert("验证码输入错误，请重新输入！")
+			}
+		})
+	
+	
+	</script>
 
 	

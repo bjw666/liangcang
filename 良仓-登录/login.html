@@ -48,7 +48,7 @@
         	height: 50px;
             width: 310px;        
         }
-        #shouJjHao{
+        #number{
         	width: 260px;
         	
     		border: solid 1px #CCCCCC;
@@ -117,19 +117,19 @@
         <div class="shouTou">
             <img src="img/zxc3.png" />
         </div>
-      <div class="youCaiDengLu">    
-             <input  class="dengLuYanZheng" id="shouJjHao" placeholder="请输入手机号/邮箱/用户名" onfocus="this.placeholder=''" 
+    <div class="youCaiDengLu">    
+             <input  class="dengLuYanZheng" id="number" placeholder="请输入手机号/邮箱/用户名" onfocus="this.placeholder=''" 
              	onblur="this.placeholder='请输入手机号/邮箱/用户名'" required style="background-color: #CCCCCC;"/>
              <input  class="dengLuYanZheng" id="yanZheng" placeholder="密码" onfocus="this.placeholder=''" 
-             	onblur="this.placeholder='密码'" required style="background-color: #CCCCCC;"/>
+             	onblur="this.placeholder='密码'" required style="background-color: #CCCCCC;color: white;"/>
              <p class="dengLu">
-               <label for="nan"><input type="checkbox" id="nan" >自动登录</label>
-                <samp class="wangJi">忘记密码?</samp>
+               <label for="nan"><input type="checkbox" id="nan" checked="checked" >自动登录</label>
+                <samp class="wangJi" onclick="window.location.href='http://www.iliangcang.com/i/ufindpwd/'">忘记密码?</samp>
              </p>
-               <input  class="dengLu" type="submit" value="登录良仓" style=" font-size: 20px;
-            font-weight: 300;background-color: black;color: white;"/>
-        </div>
-        <div class="xueBiTu">
+             <button  class="dengLu" type="submit" value="" style=" font-size: 20px;
+            font-weight: 300;background-color: black;color: white;">登录</button>
+    </div>
+    <div class="xueBiTu">
 		<ul class="xueBiTuPian">
 			<li class="xueBiTuPian1"></li>
 			<li class="xueBiTuPian2"></li>
@@ -142,5 +142,26 @@
 </div>
 		
 </body>
+	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	<script type="text/javascript" src="js/jquery.idcode.js" ></script>
+	<script type="text/javascript" src="js/jquery.cookie.js" ></script>
 </html>
-
+<script>
+	$("button").click(function(){
+		var url = "http://h6.duchengjiu.top/shop/api_user.php";
+		var data = {
+			status: "login",
+			username: $("#number").val(),
+			password: $("#yanZheng").val()
+		}
+		$.post(url, data, function(obj) {
+			console.log(obj);
+			if (obj.code == 0) {
+				alert("登陆成功!")
+				window.location.href="首页的链接"
+			}else{
+				alert("用户名或密码输入错误!")
+			}
+		})
+	})
+</script>
