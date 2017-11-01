@@ -31,33 +31,22 @@
             width: 310px;
             height: 280px;
            /*background-color: aquamarine;*/
-           margin: 0 auto;
-            
+           margin: 0 auto;           
         }
     .dengLu{
             margin: 10px;
-            height: 30px;
+            height: 40px;
             width: 300px;
-            float: left;
-            /*background-color: red;*/
-            
+            float: left;    
         }
         .wangJi{
         	float:right;
         	line-height: 30px;
         }
-      /*.wei{
-            width: 110px;
-            height: 30px;
-            padding: 20px;
-            background-color:yellow;
-            margin: 0 auto;
-        }*/
         .dengLuYanZheng{
         	margin: 10px;
         	height: 50px;
-            width: 310px;
-            
+            width: 310px;        
         }
         #shouJjHao{
         	width: 260px;
@@ -66,8 +55,7 @@
     		font-size: 18px;
     		float: left;
     		background: url(img/zxc4.png) no-repeat 2px 8px;
-    		padding-left: 30px;
-    		
+    		padding-left: 30px;   		
         }
       	#yanZheng{
         	width: 260px;
@@ -79,7 +67,48 @@
     		padding-left: 30px;
         }
          input {outline:none;}
- 
+         .xueBiTu{
+			width: 300px;
+			height: 30px;
+			/*background-color: #666666;*/
+			
+			margin-top: 20px;
+			line-height: 30px;
+		}
+		.AAA{
+			float:right;
+			color: white;
+		}
+		.xueBiTu li{
+			
+			height: 30px;
+			/*background-color: red;*/
+			background-image: url(img/icon.png);
+			list-style: none;
+			float: left;
+			cursor: pointer;
+			background-position-x: -24px;
+			background-position-y: 412px;
+		}
+		.xueBiTu .xueBiTuPian li:hover{
+			opacity:0.4;
+		}
+		.xueBiTu .xueBiTuPian1{
+			width: 30px;
+			
+		}
+		.xueBiTu .xueBiTuPian2{
+			width: 30px;
+			background-position-x: -54px;
+		}
+		.xueBiTu .xueBiTuPian3{
+			width: 30px;
+			background-position-x: -84px;
+		}
+		.xueBiTu .xueBiTuPian4{
+			width: 30px;
+			background-position-x: -114px;
+		}
     </style>
 </head>
 <body>
@@ -88,24 +117,27 @@
         <div class="shouTou">
             <img src="img/zxc3.png" />
         </div>
-      <div class="youCaiDengLu">
-        
-             <input  class="dengLuYanZheng" id="shouJjHao" placeholder="请输入手机号/邮箱/用户名" required 
-             	style="background-color: #CCCCCC;"/>
+      <div class="youCaiDengLu">    
+             <input  class="dengLuYanZheng" id="shouJjHao" placeholder="请输入手机号/邮箱/用户名" onfocus="this.placeholder=''" 
+             	onblur="this.placeholder='请输入手机号/邮箱/用户名'" required style="background-color: #CCCCCC;"/>
              <input  class="dengLuYanZheng" id="yanZheng" placeholder="密码" onfocus="this.placeholder=''" 
              	onblur="this.placeholder='密码'" required style="background-color: #CCCCCC;"/>
-          
              <p class="dengLu">
                <label for="nan"><input type="checkbox" id="nan" >自动登录</label>
-               <!--	<input value="忘记密码"/>-->
                 <samp class="wangJi">忘记密码?</samp>
              </p>
                <input  class="dengLu" type="submit" value="登录良仓" style=" font-size: 20px;
             font-weight: 300;background-color: black;color: white;"/>
         </div>
-        <!--<div class="wei">
-                <p>其他方式登录></p>
-            </div>-->
+        <div class="xueBiTu">
+		<ul class="xueBiTuPian">
+			<li class="xueBiTuPian1"></li>
+			<li class="xueBiTuPian2"></li>
+			<li class="xueBiTuPian3"></li>
+			<li class="xueBiTuPian4"></li>
+		</ul>
+		<a class="AAA" href="zhuCe.html">注册良仓</a>
+	</div>
     </div>
 </div>
 		
