@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="partOne">
+			<ul class="icos">
+				<li class="iconOne"></li>
+				<li class="iconTwo"></li>
+			</ul>
+		</div>
+		<div class="partTwo"><a href=""><img src="img/1002.jpg"/></a></div>
+		<div class="partThree">
+			<ul class="daohang">
+				<li  class="newThing"><a href=""><div class="s_icon"></div>新品</a></li>
+				<li><a href="">家居</a></li>
+				<li><a href="">家具</a></li>
+				<li><a href="">文具</a></li>
+				<li><a href="">数码</a></li>
+				<li><a href="">玩乐</a></li>
+				<li><a href="">厨卫</a></li>
+				<li><a href="">美食</a></li>
+				<li><a href="">男装</a></li>
+				<li><a href="">女装</a></li>
+				<li><a href="">童装</a></li>
+				<li><a href="">鞋包</a></li>
+				<li><a href="">配饰</a></li>
+				<li><a href="">美护</a></li>
+				<li><a href="">户外</a></li>
+				<li><a href="">植物</a></li>
+				<li><a href="">图书</a></li>
+				<li><a href="">艺术</a></li>
+				<li><a href="">礼物</a></li>
+				<li><a href="">推荐</a></li>
+				<li><a href="">品牌</a></li>
+			</ul>
+			<div class="charge_choose">价格筛选<span class="icon_sj"></span></div>
+		</div>
+		<div class="partFour">
+			<ul class="things">
+				<!--<li class="thingOne">					
+					<div class="buttom_pic">
+						<a href="">
+							<img class = "photo" src="img/259173.jpg"/>
+						</a>
+
+				
+						<a href="" class="box">
+							<p class="change">
+								<img src=""/>
+								ZUS
+							</p>							
+							<p class="money">jjjjj</p>
+							<p class="c_name">jjjjj</p>
+							<p class="description">kkkkkk</p>
+						</a>						
+					
+					</div>					
+				</li>-->
+				<a href=""></a>
+			</ul>
+			<div class="clear"></div>
+		</div>
+	<div class="more"></div>
+	</body>
+	<script>
+		var url = "http://h6.duchengjiu.top/shop/api_goods.php"
+		$.get(url,function(response){
+			var data = response.data;
+			var html="";
+				for(var i=0;i<data.length;i++){
+				html+="<li class='la'><div class ='buttom_pic'><img class='photo' src="
+				+data[i].goods_thumb+
+				"></div><a href = ''><div class ='box'><span class='s_name' style = 'color:white' >"
+				+data[i].goods_id+
+				"</span><p class ='charge'>价格￥"
+				+data[i].price+"</p><p class ='c_name'>"
+				+data[i].goods_desc+
+				"</p><p class='description'>"
+				+data[i].goods_name+
+				"</p></div></a></li>";
+				$(".things").html(html);
+			}							
+		});
+//		$.ajax({
+//			"url":"http://h6.duchengjiu.top/shop/api_goods.php?t=246665",
+//			"type":"GET",
+//			"success":function(response){
+////				console.log(response);
+//				var data = response.data;
+////				console.log(data.length);
+//				var html="";
+//					for(var i=0;i<data.length;i++){
+//					html+="<li class='la'><div class ='buttom_pic'><img class='photo' src="
+//					+data[i].goods_thumb+
+//					"/></div><div class ='box'><span class='s_name'>"
+//					+data[i].goods_name+
+//					"</span><p class ='charge'>价格￥"
+//					+data[i].price+"</p><p class ='c_name'>"
+//					+data[i].goods_desc+
+//					"</p><p class='description'>"
+//					+data[i].goods_id+
+//					"</p></div></li>";
+//					$(".things").html(html);
+//				}								
+//			}
+//		})
+	</script>
+</html>
