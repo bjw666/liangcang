@@ -66,16 +66,65 @@
 			<div class="clear"></div>
 		</div>
 	<div class="more"></div>
+	<footer>
+			<div class="bottom">
+				<div class="bottTop">
+					<div class="TopZ">
+						<p>
+							<span>iphone</span>
+							<span>Andrion</span><br />
+							<span>客户端下载</span>
+						</p>
+						<div class="node">
+							<span>下载iPhone版</span>
+							<span>下载Andrion版</span>
+						</div>
+					</div>
+					<div class="commou">
+						<ul>
+							<li>
+								<a><img src="img/weiixn.png" /> </a>
+							</li>
+							<li>
+								<a><img src="img/weibo.png" /> </a>
+							</li>
+							<li>
+								<a><img src="img/dou.png" /> </a>
+							</li>
+							<li class="ernode"></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="ziQ">
+					<ul>
+						<li><a>关于良仓</a></li>
+						<li><a>服务协议</a></li>
+						<li><a>隐私保护政策</a></li>
+						<li><a>使用指南</a></li>
+						<li><a>联系我们</a></li>
+						<li><a>加入我们</a></li>
+						<li><a>友情链接</a></li>
+						<li><a>私信良仓</a></li>
+					</ul>
+					<p>© 2013-2015 北京良仓文化传播有限公司版权所有 京ICP备13010677号-1 京公网安备11010502025627</p>
+					<p>公司名称：北京良仓文化传播有限公司 电话：010-58263516</p>
+					<p> 公司地址：北京朝阳区百子湾路32号6号楼1层60号.</p>
+					<p> 社会信用统一代码：91110105059231575L 食品许可证：JY11105160159557</p>
+					<p> 图书证名称：中华人民共和国出版物经营许可证 图书证编号：新出发京零 字第 朝 150051 号 </p>
+				</div>
+			</div>
+		</footer>
 	</body>
 	<script>
-		var url = "http://h6.duchengjiu.top/shop/api_goods.php"
+		var url = "http://h6.duchengjiu.top/shop/api_goods.php?page=5&pagesize=20"
 		$.get(url,function(response){
 			var data = response.data;
 			var html="";
 				for(var i=0;i<data.length;i++){
 				html+="<li class='la'><div class ='buttom_pic'><img class='photo' src="
 				+data[i].goods_thumb+
-				"></div><a href = ''><div class ='box'><span class='s_name' style = 'color:white' >"
+				"></div><a href = 'onething.html'><div class ='box'><span class='s_name' style = 'color:white' >"
 				+data[i].goods_id+
 				"</span><p class ='charge'>价格￥"
 				+data[i].price+"</p><p class ='c_name'>"
@@ -87,7 +136,7 @@
 			}							
 		});
 //		$.ajax({
-//			"url":"http://h6.duchengjiu.top/shop/api_goods.php?t=246665",
+//			"url":"http://h6.duchengjiu.top/shop/api_goods.php",
 //			"type":"GET",
 //			"success":function(response){
 ////				console.log(response);
