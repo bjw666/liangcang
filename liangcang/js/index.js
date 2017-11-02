@@ -7,29 +7,62 @@
 		oShopping.onmouseout=function(){
 			oShopping1.style.display = "none";
 		}
-		
-		
-		
-		var w = $("#m_unit ul li").innerWidth();
-
-		$("#rightBtn").click(function() {
-			move();
+//		轮播图
+		var $banners = $(".banners");
+		var $tuP = $(".tuP");
+		var $img = $(".tuP li");
+		var $circles = $(".circles ol li");
+		$(".tuP ul").append($img.eq(0).clone()); //复制第一张图片
+		var idx = 0;
+		var timer = setInterval(rightBtn, 1000);
+		$banners.mouseenter(function() {
+			clearInterval(timer);
+		});
+		$banners.mouseleave(function() {
+			timer = setInterval(rightBtn, 1000)
 		});
 
-		setInterval(move, 2000);
-		var i = 0;
-		function move() {
-			if ($("#m_unit").is(":animated")) {
-				return ; 
-			}
-			i++;
-			$("#m_unit").animate({"left": -i*w}, 1000, function() {
-				console.log(i)
-				if (i >= 8) {
-					i = 0; 
-					$("#m_unit").css({"left": 0});
+		$(".rightBtn").click(rightBtn);
+
+		function rightBtn() {
+			if ($tuP.is(":animated")) return;
+			idx++;
+			$tuP.animate({
+				"left": -1000 * idx
+			}, 300, function() {
+				if (idx > 7) {
+					idx = 0;
+					$tuP.css("left", 0);
 				}
-				$(".circles ol li").removeClass("current");
-				$(".circles ol li").eq(i).addClass("current");
 			});
+			changeCircle()
+		}
+		
+		$(".leftBtn").click(function() {
+
+			if ($tuP.is(":animated"))
+			return;
+			idx--;
+			if (idx < 0) {
+				idx = 7;
+				$tuP.css("left", 7 * 1000);
+			}
+			$tuP.animate({
+				"left": -1000 * idx
+			}, 300);
+			changeCircle();
+		});
+		
+		//设置圆的样式
+		$circles.click(function() {
+			idx = $(this).index();
+			$tuP.animate({
+				"left": -1000 * idx
+			}, 300);
+			changeCircle();
+		});
+
+		function changeCircle() {
+			var n = idx <= 7 ? idx : 0;
+			$circles.eq(n).addClass("cur").siblings().removeClass("cur");
 		}

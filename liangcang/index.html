@@ -1,9 +1,13 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>		
+		<title>良仓.生活美学平台</title>		
 		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<meta name="keywords" content="shopping,share,social,design,designer,product,object,良仓、i良仓、物品、生活家、设计、导购、恋物、创意、良品、分享、社交、电商、淘宝、新视线、设计品、设计师、原创设计、北欧、独立设计师、设计品牌、明星导购、达人、设计商店、在线商店、闪购、打折、折扣、礼物、关注、粉丝、推荐、喜欢圈子、日本、全球购、丹麦、海外购、瑞典、复古、家居、家具、质感、品质">
+		<link rel="shortcut icon" href="http://7q5ckq.com1.z0.glb.clouddn.com/static/favicon.ico" type="image/x-icon">
+		<meta name="description" content="买东西就上良仓，值得信赖">
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	</head>
 	<body>
 		<div class="header">
@@ -83,7 +87,7 @@
 				<div class="main">
 					<ul class="mainNav">
 						<li class="homepage hpg">
-							<a href="">首页</a>
+							<a href="index.html">首页</a>
 						</li>
 						<li class="homepage shop">
 							<a href="">商店</a>
@@ -92,10 +96,10 @@
 							</div>
 						</li>
 						<li class="homepage mag">
-							<a href="">杂志</a>
+							<a href="zazhi.html">杂志</a>
 						</li>
 						<li class="homepage sha">
-							<a href="">分享</a>
+							<a href="fenxiang.html">分享</a>
 						</li>
 						<li class="homepage exp">
 							<a href="">达人</a>
@@ -103,46 +107,62 @@
 					</ul>
 					<!--搜索-->
 					<div class="search">
-						<div class="search1">
+						<div class="search1" id="seach1">
 							<input id="sea" type="search" placeholder="search..."/>
 						</div>
-						<s></s>
+						<a href="" class="fang" id="fang"></a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!--轮播图-->
-		<div id="carousel" class="carousel">
-	    	<div id="m_unit" class="m_unit">
-	      		<ul>
-			        <li><a href=""><img src="img/image/1091.jpg" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1098.jpg" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1099.jpg" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1101.png" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1102.png" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1103.png" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1104.jpg" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1105.jpg" alt=""></a></li>
-			        <li><a href=""><img src="img/image/1091.jpg" alt=""></a></li>
-			     </ul>
-		    </div>
-		    <div class="btns">
-		      <a href="javascript:" class="leftBtn" id="leftBtn"></a>
-		      <a href="javascript:" class="rightBtn" id="rightBtn"></a>
-		    </div>
-		    <div class="circles" id="circles">
-		      <ol>
-		        <li class="current"></li>
-		        <li></li>
-		        <li></li>
-		        <li></li>
-		        <li></li>
-		        <li></li>
-		        <li></li>
-		        <li></li>
-		      </ol>
-		    </div>
-	  </div>
+	
+		<div class="banners" id="banners">
+			<div class="btns">
+				<a href="#" class="leftBtn"></a>
+				<a href="#" class="rightBtn"></a>
+			</div>
+			<div class="tuP">
+				<ul>
+					<li>
+						<a href="#"><img src="img/images/1.jpg"/></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/2.jpg" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/3.jpg" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/4.png" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/5.png" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/6.png" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/7.jpg" /></a>
+					</li>
+					<li>
+						<a href="#"><img src="img/images/8.jpg" /></a>
+					</li>
+				</ul>
+			</div>
+			<div class="circles">
+				<ol>
+					<li class="cur"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ol>
+			</div>
+		</div>
+		
 	    <!--banner-->
 	    <div class="banner">
 	  	<div class="item tooth">
@@ -506,6 +526,7 @@
 								电影《五十度黑》官方情趣系列，丰富的六件<br />套产品，可任意组合搭配不同玩...                    
 		  					</p>
 		  					
+
 		  				</a>
 		  			<div class="bar">
 		  				<a class="who" href="" style="font-size: 14px;">
@@ -558,7 +579,7 @@
 		  				</a>
 		  			<div class="bar">
 		  				<a class="who" href="">
-		  					<img src="img/953 (1).jpg" title="茶漏 时尚泡茶新方式  | 易于拆卸 方便清洗 【多色可选】" alt="茶漏 时尚泡茶新方式  | 易于拆卸 方便清洗 【多色可选】"/>
+		  					<img src="img/953.jpg" title="茶漏 时尚泡茶新方式  | 易于拆卸 方便清洗 【多色可选】" alt="茶漏 时尚泡茶新方式  | 易于拆卸 方便清洗 【多色可选】"/>
 		  					NORMANN
 		  				</a>
 		  				<a href="" class="praise">548</a>
@@ -646,9 +667,70 @@
 	    	</div>
 	    	
 	    </div>
+		
+		<!--尾部-->
+		<footer>
+			<div class="bottom">
+				<div class="bottTop">
+					<div class="TopZ">
+						<p>
+							<span>iphone</span>
+							<span>Andrion</span><br />
+							<span>客户端下载</span>
+						</p>
+						<div class="node">
+							<span>下载iPhone版</span>
+							<span>下载Andrion版</span>
+						</div>
+					</div>
+					<div class="commou">
+						<ul>
+							<li>
+								<a class="commou-one"></a>
+							</li>
+							<li>
+								<a class="commou-two"></a>
+							</li>
+							<li>
+								<a class="commou-three"></a>
+							</li>
+							<li class="ernode"></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="ziQ">
+					<ul>
+						<li><a>关于良仓</a></li>
+						<li><a>服务协议</a></li>
+						<li><a>隐私保护政策</a></li>
+						<li><a>使用指南</a></li>
+						<li><a>联系我们</a></li>
+						<li><a>加入我们</a></li>
+						<li><a>友情链接</a></li>
+						<li><a>私信良仓</a></li>
+					</ul>
+					<p>© 2013-2015 北京良仓文化传播有限公司版权所有 京ICP备13010677号-1 京公网安备11010502025627</p>
+					<p>&nbsp;&nbsp;公司名称：北京良仓文化传播有限公司 电话：010-58263516</p>
+					<p>&nbsp;&nbsp;公司地址：北京朝阳区百子湾路32号6号楼1层60号.</p>
+					<p>&nbsp;&nbsp;社会信用统一代码：91110105059231575L 食品许可证：JY11105160159557</p>
+					<p>&nbsp;&nbsp;图书证名称：中华人民共和国出版物经营许可证 图书证编号：新出发京零 字第 朝 150051 号 </p>
+				</div>
+			</div>
+		</footer>
+		<aside>
+			<a href="">
+				<p class="retu"></p>
+			</a>
+			<a href="">
+				<p class="call">联系客服</p>
+			</a>
+		</aside>
 	</body>
 	
-	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
-	<script src="js/index.js"></script>	
 	
+	<script src="js/index.js"></script>	
+	<script>
+		
+	</script>
 </html>
