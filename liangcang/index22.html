@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>良仓.生活美学平台</title>	
+		
+		<link rel="stylesheet" type="text/css" href="css/zazhi.css"/>
+		<meta name="keywords" content="shopping,share,social,design,designer,product,object,良仓、i良仓、物品、生活家、设计、导购、恋物、创意、良品、分享、社交、电商、淘宝、新视线、设计品、设计师、原创设计、北欧、独立设计师、设计品牌、明星导购、达人、设计商店、在线商店、闪购、打折、折扣、礼物、关注、粉丝、推荐、喜欢圈子、日本、全球购、丹麦、海外购、瑞典、复古、家居、家具、质感、品质">
+		<link rel="shortcut icon" href="http://7q5ckq.com1.z0.glb.clouddn.com/static/favicon.ico" type="image/x-icon">
+		<meta name="description" content="买东西就上良仓，值得信赖">
+		<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+		<style type="text/css">
+			.topHome{
+				width: 1000px;
+				height: 300px;
+				background: lavender;
+				margin: 0 auto ;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-top">
+				<div id="nav-top">
+					<a href="" class="header-icon"></a>	
+					<ul class="header-login">
+						<li class="login1">
+							<a href="">登录</a>
+							<a href="">注册</a>	
+						</li>
+						<li class="line"></li>
+						<!--购物车及购物车二级-->
+						<li class="shopping" id="shopping">
+							<a href="">购物车</a>
+							<div class="shoppingTwo" id="shoppingTwo">
+								<div class="timeout">
+									<a href="">你的购物车暂时没有商品...</a>
+								</div>
+								<div class="quick">
+									<a href="" class="quick">快去抢购良仓商品吧！</a>
+								</div>
+							</div>
+						</li>
+						<li class="line"></li>
+						<!--消息及消息二级-->
+						<li class="message">
+							<a href="">消息</a>
+							<div class="message1">
+								<div class="msg">
+									<span>
+										动态
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										评论
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										私信
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										粉丝
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										喜欢
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg msg1">
+									<span>
+										通知
+										<small>0</small>
+									</span>
+								</div>
+							</div>
+						</li>
+						<li class="line"></li>
+						<li class="add">
+							<a href="">添加良品</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="topHome">
+			
+		</div>
+		<script>
+		$.get("http://h6.duchengjiu.top/shop/api_cat.php",	
+		function(str){
+			var data = str.data;
+			for(var i = 0 ; i< data.length ; i++){
+				var obj = data[i];
+				console.log(obj);
+				$(".topHome")[0].innerHTML +=`<div><a href="index.html?data_id= ${obj.cat_id}">${obj.cat_name}</a></div>`;
+		}
+			})
+	</script>
+	</body>
+	
+</html>

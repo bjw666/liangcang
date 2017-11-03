@@ -17,6 +17,10 @@
 				/*background: brown;*/
 				margin: 0 auto;
 			}
+			#zhuxiao{
+				display: none;
+				margin-top: 20px;
+			}
 			.header #nav-top .header-icon{
 				width: 95px;
 				height: 40px;
@@ -29,7 +33,7 @@
 				opacity: 0.8;
 			}
 			.header #nav-top .header-login{
-				width: 270px;
+				width: 380px;
 				height: 60px;
 				/*background: hotpink;*/
 				float: right;
@@ -338,26 +342,30 @@
 		   }
 		   .gooder{
 			   	width: 1000px;
-			   	height: 2376px;
+			   	height: 2556px;
 			   	/*background: darkgoldenrod;*/
 			   	margin: 0 auto;
 			   	position: relative;
 			   	top: 40px;
-		   }
-		   .first{
-			   	width: 1000px;
-			   	height: 366px;
+			  
 		   }
 		   .item1{
 			   	width: 316px;
 			   	height: 366px;
 			   	/*background: darkmagenta;*/
 			   	position: relative;
+			   	float: left;
+			   	margin-right: 10px;
 		   }
 		   .item_eye{
 			   	width: 316px;
 			   	height: 316px;
 			   	/*background: lightblue;*/
+		   }
+		   .item_eye a{
+		   	width:100%;
+		   	height:100%;
+		   	display: block;
 		   }
 		   .item_eye a img{
 			   	width: 316px;
@@ -747,11 +755,11 @@
 				color: #5C5C5C;
 			}
 			/*返回顶部*/
-			aside a{
+			/*aside a{
 				text-decoration: none;
 			}
 			.retu{
 				width: 59px;
 				height: 59px;
 				
-			}
+			}*/

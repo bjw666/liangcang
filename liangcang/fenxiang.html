@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>良仓.生活美学平台</title>		
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<meta name="keywords" content="shopping,share,social,design,designer,product,object,良仓、i良仓、物品、生活家、设计、导购、恋物、创意、良品、分享、社交、电商、淘宝、新视线、设计品、设计师、原创设计、北欧、独立设计师、设计品牌、明星导购、达人、设计商店、在线商店、闪购、打折、折扣、礼物、关注、粉丝、推荐、喜欢圈子、日本、全球购、丹麦、海外购、瑞典、复古、家居、家具、质感、品质">
+		<link rel="shortcut icon" href="http://7q5ckq.com1.z0.glb.clouddn.com/static/favicon.ico" type="image/x-icon">
+		<meta name="description" content="买东西就上良仓，值得信赖">
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.header{
+				width: 100%;
+				height: 110px;
+				margin: 0 auto;
+			}
+			.header-top{
+				height: 60px;
+				background-color: #25292E;
+			}
+			.header #nav-top{
+				width: 1000px;
+				height: 60px;
+				/*background: brown;*/
+				margin: 0 auto;
+			}
+			.header #nav-top .header-icon{
+				width: 95px;
+				height: 40px;
+				background: url(img/icon.png);
+				float: left;
+				margin-top: 10px;	
+				opacity: 1;
+			}
+			.header #nav-top .header-icon:hover{
+				opacity: 0.8;
+			}
+			.header #nav-top .header-login{
+				width: 270px;
+				height: 60px;
+				/*background: hotpink;*/
+				float: right;
+				list-style: none;				
+			}
+			.line{
+				width: 1px;
+				height: 10px;
+				background: #666666;
+				margin-top: 25px;
+			}
+			.header-login li{
+				float: left;
+				line-height: 58px;	
+				margin-left: 15px;			
+			}
+			.header-login li a{
+				zoom: 1;
+				font-size: 12px;
+				color: #666666;
+				text-decoration: none;
+			}
+			.header-login li a:hover{
+				color: #CCCCCC;
+			}
+			.header-login .login1 a{
+				color: #CCCCCC;
+			}
+			/*购物车*/
+			.header-login .shopping{
+				position: relative;
+				z-index: 999;
+			}
+			.header-login .shoppingTwo{
+				width: 320px;
+				height: 120px;
+				position: absolute;
+				left: -150px;
+				text-align: center;			
+			}
+			#shoppingTwo{
+				display: none;	
+			}
+			.timeout{
+				height: 70px;
+				background: #25292E;
+				line-height: 70px;
+			}
+			.header-login .timeout a{
+				color: #CCCCCC;
+			}
+			.quick{
+				background: #64AACD;
+				opacity: 1;
+			}
+			.header-login .shoppingTwo .quick a{
+				color: white;
+			}
+			.header-login .shoppingTwo .quick:hover{
+				opacity: 0.8;
+			}
+			/*消息*/
+			.message{
+				position: relative;
+				z-index: 999;
+			}
+			.message:hover .message1{
+				display: block;
+			}
+			.message1{
+				width: 190px;
+				height: 265px;
+				background: #25292E;
+				position: absolute;
+				left: -86px;
+				cursor: pointer;
+				display: none;
+			}
+			.message1 .msg{
+				width: 100%;
+				height: 43px;
+				border-bottom: 1px solid #525961;
+				text-decoration: none;	
+				color: #ccc;
+				font-size: 12px;
+			}
+			.message1 .msg1{
+				border-bottom: none;
+			}
+			.message1 .msg span{
+				display: inline-block;
+				width: 190px;
+				height: 35px;
+				padding: 0;
+				line-height: 35px;
+				letter-spacing: 1.5px;
+				margin-left: 15px;
+			}
+			.message1 .msg span small{
+				float: right;
+				margin-right: 30px;
+			}
+			/*首页菜单*/
+			.header-nav{
+				height: 46px;
+				/*background-color: greenyellow;				*/*/
+			}
+			.main{
+				width: 1000px;
+				height: 46px;
+				/*background: lawngreen;*/
+				margin: 0 auto;
+				z-index: 1000px;
+				border-bottom: 4px solid #EDEDED;
+			}
+			.mainNav{
+				width: 735px;
+				height: 46px;
+				/*background: honeydew;*/
+				list-style: none;
+				
+			}
+			.homepage{
+				width: 123px;
+				height: 46px;
+				/*background: violet;*/
+				float: left;
+				line-height: 46px;
+				text-align: center;
+			}
+			.homepage a{
+				text-decoration: none;
+				color: #333333;
+			}
+			.hpg,.shop,.mag,.sha{
+				margin-right: 30px;
+			}
+			.hpg:hover,.shop:hover,.mag:hover,.sha:hover,.exp:hover{
+				cursor: pointer;
+				border-bottom: 4px solid #25292E;
+			}
+			.shopEr{
+				width: 1000px;
+				height: 495px;
+				/*background: lightblue;*/
+				margin-left: -153px;
+				margin-top: 4px;
+			}
+			.search{
+				width: 265px;
+				height: 40px;
+				/*background: salmon;*/
+				float: right;
+				margin-top: -43px;
+			}
+			#sea{
+				width: 210px;
+				height: 30px;
+				/*background: navajowhite;*/
+				margin-top: 5px;
+				margin-left: 10px;
+				display: none;
+			}
+			*:focus{
+				outline: none;
+			}
+			s{
+				width: 40px;
+				height: 30px;
+				background: url(img/icon.png) 40px -145px;
+				float: right;
+			}
+			
+			.shareAll{
+				width: 1000px;
+				height:3297px;
+				/*background: lightblue;*/
+				margin: 0 auto;
+				margin-top: 10px;
+
+			}
+			.quanbu{
+				width: 1000px;
+				height: 20px;
+				/*background: lightcoral;*/
+				line-height: 20px;
+				color: #bfbfbf;
+				font-weight: normal;
+				vertical-align: middle;
+				font-family: Arial;
+				padding: 10px 0 5px 0;
+				font-size: 12px;
+			}
+			.quanbu a{
+				text-decoration: none;
+				color: #666;
+			}
+			.diancang{
+				width: 1000px;
+				height: 370px;
+				/*background: firebrick;*/
+				position: relative;
+				margin-top: 0px;
+				z-index: 3;
+				overflow: hidden;
+			}
+			.diancang1{
+				width: 2000px;
+				height: 370px;
+				position: relative;
+			}
+			.dianCangWang{
+				width: 306px;
+				height: 345px;
+				/*background: greenyellow;*/
+			}
+			.dianCangWang0{
+				width: 306px;
+				height: 34px;
+				/*background: lightcoral;*/
+			}
+			.dianCangWang1{
+				width: 34px;
+				height: 34px;
+				/*background: darkorchid;*/
+				display: block;
+				margin-top: 2px;
+			}
+			.dianCangWang0 li{
+				float: left;
+			}
+			.dianXin{
+				width: 270px;
+				height: 34px;
+				background: url(img/block_bg_gray_266.png);
+				display: block;	
+				margin-left: 2px;
+				color: #333333;			
+			}
+			.dianXinDC{
+				width: 77px;
+				height: 34px;
+				/*background: darksalmon;*/
+				padding: 0px 16px 0px 8px;
+				line-height: 35px;
+			}
+			.dianXin a{
+				text-decoration: none;
+				font-size: 12px;
+			}
+			.dianNum{
+				width: 45px;
+				height: 26px;
+				font-size: 12px;
+				padding: 8px 32px 0 8px;
+				float: right;
+				background: url(img/xin_black.png) no-repeat 56px 10px;
+				font-weight: bold;
+				text-align: right;
+			}
+			.nuoMi{
+				width: 306px;
+				height: 311px;
+				/*background: deepskyblue;*/
+				margin-top: 5px;
+			}
+			.nuoMi-tu{
+				width: 306px;
+				height: 306px;
+				/*background: url(img/252297.jpg);*/
+			}
+			#tu:hover .woLong{
+				opacity: 1;
+			}
+			.woLong{
+				position: absolute;
+				z-index: 5;
+				top: 194px;
+				left: 167px;
+				width: 306px;
+				height: 306px;
+				background: rgba(10,10,10,0.3);				
+				opacity: 1;
+			}
+			.woLongMi{
+				width: 306px;
+				height: 30px;
+				background: rgba(0,0,0,0.45);
+				white-space: nowrap;
+				top: 39px;
+				left: 0;
+				color: #fff;
+				padding: 3px 0;
+			}
+			
+			.zhuanFa{
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+				float: right;
+				margin-right: 2px;
+				position: relative;
+				background: url(img/icon_send.png) no-repeat center center;
+			}
+			.woLongMi a{
+				text-decoration: none;
+				color: #878787;
+			}
+			.woLongMi span{
+				width: 60px;
+				height: 22px;
+				float: left;
+				font-size: 18px;
+				text-align: left;
+				position: relative;	
+				padding: 5px;			
+			}
+			.meLong{
+				width: 226px;
+				height: 112px;
+				padding: 100px 40px 60px 40px;
+				font-size: 13px;
+				color: #fff;
+				text-align: center;
+				line-height: 218px;
+				margin-left: 95px;		
+			}
+			.woLong a{
+				text-decoration: none;				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="header-top">
+				<div id="nav-top">
+					<a href="" class="header-icon"></a>	
+					<ul class="header-login">
+						<li class="login1">
+							<a href="">登录</a>
+							<a href="">注册</a>	
+						</li>
+						<li class="line"></li>
+						<!--购物车及购物车二级-->
+						<li class="shopping" id="shopping">
+							<a href="">购物车</a>
+							<div class="shoppingTwo" id="shoppingTwo">
+								<div class="timeout">
+									<a href="">你的购物车暂时没有商品...</a>
+								</div>
+								<div class="quick">
+									<a href="" class="quick">快去抢购良仓商品吧！</a>
+								</div>
+							</div>
+						</li>
+						<li class="line"></li>
+						<!--消息及消息二级-->
+						<li class="message">
+							<a href="">消息</a>
+							<div class="message1">
+								<div class="msg">
+									<span>
+										动态
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										评论
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										私信
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										粉丝
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg">
+									<span>
+										喜欢
+										<small>0</small>
+									</span>
+								</div>
+								<div class="msg msg1">
+									<span>
+										通知
+										<small>0</small>
+									</span>
+								</div>
+							</div>
+						</li>
+						<li class="line"></li>
+						<li class="add">
+							<a href="">添加良品</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--首页菜单-->
+			<div class="header-nav">
+				<div class="main">
+					<ul class="mainNav">
+						<li class="homepage hpg">
+							<a href="">首页</a>
+						</li>
+						<li class="homepage shop">
+							<a href="">商店</a>
+							<div class="shopEr">
+								
+							</div>
+						</li>
+						<li class="homepage mag">
+							<a href="">杂志</a>
+						</li>
+						<li class="homepage sha">
+							<a href="">分享</a>
+						</li>
+						<li class="homepage exp">
+							<a href="">达人</a>
+						</li>
+					</ul>
+					<!--搜索-->
+					<div class="search">
+						<div class="search1">
+							<input id="sea" type="search" placeholder="search..."/>
+						</div>
+						<s></s>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="shareAll">
+			<div class="quanbu">
+				<a href="http://www.iliangcang.com/i/home/">良仓</a>&nbsp;>
+				<a href="http://www.iliangcang.com/i/class/">全部精品</a>&nbsp;>&nbsp;分享
+			</div>
+			<div class="dianCang">
+				<div class="dianCang1">
+					<div class="dianCangWang">
+						
+						<ul class="dianCangWang0">
+							<li class="dianCangWang1">
+								<a href="/i/usermain/?id=893851309">
+									<img src="img/893851309.jpg" title="滇仓网DC" alt="滇仓网DC"/>
+								</a>
+							</li>
+							<li class="dianXin">
+								<a href="http://www.iliangcang.com/i/usermain/?id=893851309" class="dianXinDC">滇仓网DC</a>
+								<a href="" class="dianNum">35</a>
+							</li>
+						</ul>
+						
+						<div class="nuoMi" id="tu">
+							<div class="nuoMi-tu">
+								<a href="/i/goods/?id=252297">
+									<img src="img/252297.jpg" title="卧龙米" alt="卧龙米"/>
+								</a>
+							</div>
+						</div>
+						
+						<div class="woLong">
+							<div class="woLongMi">
+								<a href="" class="zhuanFa"></a>
+								<span>
+									¥29.00
+								</span>
+							</div>
+							<a href="" class="meLong">卧龙米</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

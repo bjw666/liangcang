@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/shop.css"/>
+		<script src="js/jquery-1.12.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="tu-zi">
+			<div id="box">
+				<ul></ul>
+			<div class="bigPic">
+			<!--<img src="img/2.jpg"/>-->
+		     </div>
+		   </div>
+			<div class="twoButton">
+				<button class="buy">立即购买</button>
+				<button class="cart">加入购物车</button>
+			</div>
+		</div>
+		<footer>
+			<div class="bottom">
+				<div class="bottTop">
+					<div class="TopZ">
+						<p>
+							<span>iphone</span>
+							<span>Andrion</span><br />
+							<span>客户端下载</span>
+						</p>
+						<div class="node">
+							<span>下载iPhone版</span>
+							<span>下载Andrion版</span>
+						</div>
+					</div>
+					<div class="commou">
+						<ul>
+							<li>
+								<a><img src="img/weiixn.png" /> </a>
+							</li>
+							<li>
+								<a><img src="img/weibo.png" /> </a>
+							</li>
+							<li>
+								<a><img src="img/dou.png" /> </a>
+							</li>
+							<li class="ernode"></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="ziQ">
+					<ul>
+						<li><a>关于良仓</a></li>
+						<li><a>服务协议</a></li>
+						<li><a>隐私保护政策</a></li>
+						<li><a>使用指南</a></li>
+						<li><a>联系我们</a></li>
+						<li><a>加入我们</a></li>
+						<li><a>友情链接</a></li>
+						<li><a>私信良仓</a></li>
+					</ul>
+					<p>© 2013-2015 北京良仓文化传播有限公司版权所有 京ICP备13010677号-1 京公网安备11010502025627</p>
+					<p>公司名称：北京良仓文化传播有限公司 电话：010-58263516</p>
+					<p> 公司地址：北京朝阳区百子湾路32号6号楼1层60号.</p>
+					<p> 社会信用统一代码：91110105059231575L 食品许可证：JY11105160159557</p>
+					<p> 图书证名称：中华人民共和国出版物经营许可证 图书证编号：新出发京零 字第 朝 150051 号 </p>
+				</div>
+			</div>
+		</footer>
+	</body>
+	<script>
+		$(function() {
+                $(".TopZ").mouseenter(function(){
+					$(this).children("p").css({
+						"opacity": 1,
+						"color": "white"
+					});
+					$(".node").css("display", "block");
+
+				});
+				$(".TopZ").mouseleave(function() {
+					$(this).children("p").css({
+						"opacity": 0.5,
+						"color": "#505152"
+					});
+					$(".node").css("display", "none");
+				});
+
+				$(".commou ul li").eq(0).mouseenter(function() {
+					$(".ernode").css("display", "block");
+
+				});
+				$(".commou ul li").eq(0).mouseleave(function() {
+					$(".ernode").css("display", "none");
+				});
+				if (localStorage.getItem("token")) {
+					$("#right ul li").eq(0).css({
+						"color": "white",
+						"font-size": 14,
+						"margin-top": 15
+					}).html("欢迎:" + localStorage.getItem("username"));
+				}
+				$("#right ul li").eq(2).click(function() {
+					localStorage.clear();
+				})
+				$(".buy").click(function() {
+
+					location.href = "cart.html"
+				})
+				var ss = window.sessionStorage.search;
+				console.log(ss);
+				//通过location.search获取get传参的数据 截取？后面的内容
+				var str = location.search.substr(1);
+				//用分割方法得到 = 号两边内容
+				var goodsId = str.split("=");
+				//用下标找到id的值
+				console.log(goodsId[1]);
+				$.ajax({
+						"url": "http://h6.duchengjiu.top/shop/api_goods.php",
+						"type": "GET",
+						"data": {
+							"goods_id": goodsId[1],
+							"search_text": ss
+						},
+						"dataType": "json",
+						"success": function(response) {
+							var obj = response;
+							console.log(obj);
+							$("#box ul").html('<li><div class="Small"><img class="smallPic" src="' 
+								+ obj.data[0].goods_thumb + 
+								'"/><div class="zoom"></div></div><span><p class="op">' 
+								+ obj.data[0].goods_name + 
+								'</p><p class="op1">' 
+								+ obj.data[0].goods_desc +
+								'</p><p class="op2">价格￥'
+								+ obj.data[0].price +
+								'</p><div class="Button"><button class="btnM">-</button><i class="center">' 
+									+ 1 + 
+								'</i><p class="shu">数量:</p><button class="btnA">+</button></div></span></li>');
+								$(".bigPic").html('<img src="'+obj.data[0].goods_thumb+'"/>')
+								fun($(".Button"));//调用加减函数实现点击事件
+							  console.log($(".Button"));
+							
+							//放大镜的实现
+							var rate=$(".bigPic img").width()/$(".smallPic").width();
+							console.log(rate);
+							$(".Small").mousemove(function(event){
+								var x=event.clientX-$(this).offset().left-$(".zoom").width()/2;
+								var y=event.clientY-$(this).offset().top-$(".zoom").height()/2;
+								console.log(x,y);
+								if(x<0)x=0;
+								if(y<0)y=0;
+								if(x>$(this).width()-$(".zoom").width()){
+									x=$(this).width()-$(".zoom").width();
+								}
+								if(y>$(this).height()-$(".zoom").height()){
+									y=$(this).height()-$(".zoom").height();
+								}
+								$(".zoom").show().css({"left":x,"top":y});
+								$(".bigPic").show();
+								$(".bigPic img").css({"left":-x*rate,"top":-y*rate});
+							})
+							$(".Small").mouseout(function(){
+								$(".zoom").hide();
+								$(".bigPic").hide();
+							})
+						}
+
+					})
+				//通过goods_id查询商品数据
+				$("#btn1").click(function() {
+						var strNew = $("#str").val();
+						console.log(strNew);
+                            $.ajax({
+							"url": "http://h6.duchengjiu.top/shop/api_goods.php",
+							"type": "GET",
+							"data": {
+								"search_text": strNew
+							},
+							"dataType": "json",
+							"success": function(response) {
+								var obj = response;
+								console.log(obj);
+							$("#box ul").html('<li><div class="Small"><img class="smallPic" src="' 
+								+ obj.data[0].goods_thumb + 
+								'"/><div class="zoom"></div></div><span><p class="op">' 
+								+ obj.data[0].goods_name + 
+								'</p><p class="op1">' 
+								+ obj.data[0].goods_desc +
+								'</p><p class="op2">价格￥'
+								+ obj.data[0].price +
+								'</p><div class="Button"><button class="btnM">-</button><i class="center">' 
+									+ 1 + 
+								'</i><p class="shu">数量:</p><button class="btnA">+</button></div></span></li>');
+								$(".bigPic").html('<img src="'+obj.data[0].goods_thumb+'"/>');
+								goodsId[1]=obj.data[0].goods_id;
+								
+							}
+						})
+					})
+					//加入购物车的事件
+				$(".cart").click(function() {
+					//判断当前是否登录
+					if (!localStorage.getItem("token")) {
+						alert("还没有登录请登录");
+						location.href = "logo.html#callback" + location.href;
+						//callback hash值为了实现一些功能  location.href表示对hash值得介绍表示当前功能
+						return;
+					}
+					console.log(goodsId[1]);
+                    var goods_number = localStorage.getItem("cart" + goodsId[1]); //获取本地存储商品信息
+					//如果里面有，则买过商品，让之前的商品加一，否则是第一次购买，则数量为1
+					var NUM=parseInt($(".center").text());//获取到加减框的值
+					goods_number = goods_number ? parseInt(goods_number) + NUM: NUM;
+					$.ajax({
+						type: "POST",
+						url: "http://h6.duchengjiu.top/shop/api_cart.php?token=" + localStorage.token,
+						"data": {
+							"goods_id": goodsId[1],
+							"number": goods_number
+						},
+						"dataType": "json",
+						"success": function(response) {
+							console.log(response);
+							//使用后存储商品的购买数量到本地的存储中
+							localStorage.setItem("cart" + goodsId[1], goods_number);
+							location.href = "cart.html"
+						}
+					});
+				})
+                  //加减框的设置
+				function fun(obj) {
+					var btnM = document.getElementsByClassName("btnM")[0];
+					var btnA = document.getElementsByClassName("btnA")[0];
+					var center = document.getElementsByClassName("center")[0];
+					var indx = 1;
+					console.log(center);
+					btnM.onclick = function() {
+						indx--;
+						console.log(indx)
+						if (indx < 1) {
+							indx = 1;
+						}
+						alert(123);
+						console.log(indx);
+						center.value = indx;
+						console.log(typeof center.value)
+					}
+					btnA.onclick = function() {
+						indx++;
+						if (indx > 10) {
+							indx = 0;
+						}
+						center.innerText = indx;
+                    }
+				}
+            })
+	</script>
+</html>

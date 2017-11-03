@@ -1,0 +1,105 @@
+	*{
+        margin: 0;
+        padding: 0;
+    }
+    .dengLuYeMian{
+        width: 100%;
+        height: 800px;
+        background-color:#999999;
+        padding-top: 150px;
+    }
+    .youCaiXueYuan{
+        width: 320px;
+        height: 550px;
+        /*background-color: red ;*/
+        margin: 0 auto;
+    }
+    .shouTou{
+        width: 300px;
+        height: 120px;
+       /*background-color: yellow;*/
+        margin: 0 auto;
+        text-align: center;
+    }
+   .youCaiDengLu{
+        width: 310px;
+        height: 280px;
+       /*background-color: aquamarine;*/
+       margin: 0 auto;           
+    }
+.dengLu{
+        margin: 10px;
+        height: 40px;
+        width: 300px;
+        float: left;    
+    }
+    .wangJi{
+    	float:right;
+    	line-height: 30px;
+    }
+    .dengLuYanZheng{
+    	margin: 10px;
+    	height: 50px;
+        width: 310px;        
+    }
+    #number{
+    	width: 260px;
+    	
+		border: solid 1px #CCCCCC;
+		font-size: 18px;
+		float: left;
+		background: url(../img/zxc4.png) no-repeat 2px 8px;
+		padding-left: 30px;   		
+    }
+  	#yanZheng{
+    	width: 260px;
+    	
+		border: solid 1px #CCCCCC;
+		font-size: 18px;
+		float: left;
+		background: url(../img/zxc5.png) no-repeat 2px 8px;
+		padding-left: 30px;
+    }
+     input {outline:none;}
+     .xueBiTu{
+		width: 300px;
+		height: 30px;
+		/*background-color: #666666;*/
+		
+		margin-top: 20px;
+		line-height: 30px;
+	}
+	.AAA{
+		float:right;
+		color: white;
+	}
+	.xueBiTu li{
+		
+		height: 30px;
+		/*background-color: red;*/
+		background-image: url(../img/icon.png);
+		list-style: none;
+		float: left;
+		cursor: pointer;
+		background-position-x: -24px;
+		background-position-y: 412px;
+	}
+	.xueBiTu .xueBiTuPian li:hover{
+		opacity:0.4;
+	}
+	.xueBiTu .xueBiTuPian1{
+		width: 30px;
+		
+	}
+	.xueBiTu .xueBiTuPian2{
+		width: 30px;
+		background-position-x: -54px;
+	}
+	.xueBiTu .xueBiTuPian3{
+		width: 30px;
+		background-position-x: -84px;
+	}
+	.xueBiTu .xueBiTuPian4{
+		width: 30px;
+		background-position-x: -114px;
+	}
